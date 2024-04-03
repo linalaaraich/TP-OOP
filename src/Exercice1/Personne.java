@@ -1,3 +1,5 @@
+package Exercice1;
+
 public class Personne {
     public String CIN;
     public String Nom;
