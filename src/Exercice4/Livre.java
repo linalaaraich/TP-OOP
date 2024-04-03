@@ -4,19 +4,21 @@ public class Livre {
     String titre;
     String auteur;
     int nombreDePages;
-    double prix;
+    double prix = -1;
+    boolean prixFixe;
     public Livre(String titre, String auteur, int nombreDePages){
         this.titre = titre;
         this.auteur = auteur;
         this.nombreDePages = nombreDePages;
+        this.prixFixe = false;
     }
     public Livre(String titre, String auteur, int nombreDePages, double prix){
         this.titre = titre;
         this.auteur = auteur;
         this.nombreDePages = nombreDePages;
         this.prix = prix;
+        this.prixFixe = true;
     }
-    //2. Des méthodes d’accès et d’altération (get et set) pour les différents attributs.
     public void setTitre(String titre){
         this.titre = titre;
     }
@@ -36,15 +38,42 @@ public class Livre {
         return nombreDePages;
     }
     public void setPrix(double prix){
-        this.prix = prix;
+        if(!prixFixe){
+            this.prix = prix;
+        }
+        else{
+            System.out.println("Impossible! Le prix est deja fixe");
+        }
+    }
+    double getPrix(){
+        return prix;
     }
 
-    //3. Une méthode toString() qui renvoie une chaîne de caractères qui décrit le livre. Si le
-    //prix d’un livre n’a pas été donné, la description du livre (toString()) devra indiquer
-    //«Prix pas encore donné ».
-    //Un livre peut être gratuit (0 est une valeur possible pour un prix) ; la valeur -1 indiquera que
-    //le prix n’a pas encore été donné. On bloque complètement les prix : un prix ne peut être donné
-    //qu’une seule fois et ne peut être modifié ensuite (une tentative pour changer le prix ne fait
-    //qu’afficher un message d’erreur). Vous ajouterez une variable booléenne prixFixe qui
-    //indiquera que le prix ne peut plus être modifié.
+    @Override
+    public String toString(){
+        if (prix != -1){
+            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ "pages, et son prix est " + prix + "DH.";
+        }
+        else{
+            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ "pages. " + "\nPrix pas encore donné";
+        }
+    }
+    //4. Écrivez une méthode « prixFixe » qui renvoie si le prix a déjà été fixé.
+    public void prixFixe(){
+        if (prixFixe) System.out.println("Le prix est fixe! \nPrix: " + prix);
+        else System.out.println("Le prix n'est pas encore fixe!");
+    }
+    public int comparer(Livre livre){
+        if(livre.nombreDePages > this.nombreDePages ) return -1;//System.out.println("Le livre " + a.titre + "contient plus de pages que " + b.titre);
+        else if(livre.nombreDePages < this.nombreDePages ) return 1;//System.out.println("Le livre " + b.titre + "contient plus de pages que " + a.titre);
+        else return 0; //System.out.println("Les deux livres " + a.titre + "et" + b.titre + "contient le meme nombre de pages");
+    }
+
+    //6. Créez une classe Etagere pour représenter une étagère qui peut contenir un certain
+    //nombre de livres (fixe pour chaque étagère). Vous utiliserez pour cela un tableau.
+    //7. Le constructeur prendra en paramètre le nombre de livres que pourra contenir
+    //l’étagère.
+    //8. Vous ajouterez des méthodes pour :
+    //a. Donner le nombre de livres que peut contenir l’étagère, et le nombre de livres
+    //qu’elle contient.
 }
