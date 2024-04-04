@@ -69,11 +69,4 @@ public class Livre {
         else return 0; //System.out.println("Les deux livres " + a.titre + "et" + b.titre + "contient le meme nombre de pages");
     }
 
-    //6. Créez une classe Etagere pour représenter une étagère qui peut contenir un certain
-    //nombre de livres (fixe pour chaque étagère). Vous utiliserez pour cela un tableau.
-    //7. Le constructeur prendra en paramètre le nombre de livres que pourra contenir
-    //l’étagère.
-    //8. Vous ajouterez des méthodes pour :
-    //a. Donner le nombre de livres que peut contenir l’étagère, et le nombre de livres
-    //qu’elle contient.
 }
