@@ -6,6 +6,9 @@ public class Livre {
     int nombreDePages;
     double prix = -1;
     boolean prixFixe;
+    public Livre (){
+        this.prixFixe = false;
+    }
     public Livre(String titre, String auteur, int nombreDePages){
         this.titre = titre;
         this.auteur = auteur;
@@ -16,8 +19,7 @@ public class Livre {
         this.titre = titre;
         this.auteur = auteur;
         this.nombreDePages = nombreDePages;
-        this.prix = prix;
-        this.prixFixe = true;
+        this.setPrix(prix);
     }
     public void setTitre(String titre){
         this.titre = titre;
@@ -40,6 +42,7 @@ public class Livre {
     public void setPrix(double prix){
         if(!prixFixe){
             this.prix = prix;
+            this.prixFixe = true;
         }
         else{
             System.out.println("Impossible! Le prix est deja fixe");
@@ -52,16 +55,16 @@ public class Livre {
     @Override
     public String toString(){
         if (prix != -1){
-            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ "pages, et son prix est " + prix + "DH.";
+            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ " pages, et son prix est " + prix + "DH.";
         }
         else{
-            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ "pages. " + "\nPrix pas encore donné";
+            return titre + " est un livre ecrit par " + auteur + ". Il contient " +nombreDePages+ " pages.Le Prix pas encore donné";
         }
     }
     //4. Écrivez une méthode « prixFixe » qui renvoie si le prix a déjà été fixé.
     public void prixFixe(){
-        if (prixFixe) System.out.println("Le prix est fixe! \nPrix: " + prix);
-        else System.out.println("Le prix n'est pas encore fixe!");
+        if (prixFixe) System.out.println("Le prix de "+ this.titre + " ecrit par " + this.auteur+" est fixe! \nPrix: " + prix);
+        else System.out.println("Le prix de "+ this.titre + " ecrit par " + this.auteur+ " n'est pas encore fixe!");
     }
     public int comparer(Livre livre){
         if(livre.nombreDePages > this.nombreDePages ) return -1;//System.out.println("Le livre " + a.titre + "contient plus de pages que " + b.titre);
