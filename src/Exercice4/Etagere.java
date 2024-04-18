@@ -1,17 +1,15 @@
 package Exercice4;
 
 public class Etagere {
-    private Livre[] livres;
-    private int etageMax;
+    private final Livre[] livres;
+    private final int etageMax;
     private int nombreDeLivres;
 
     Etagere(int etageMax, Livre[] livres) {
         this.etageMax = etageMax;
         this.nombreDeLivres = livres.length;
         this.livres = new Livre[etageMax];
-        for (int i = 0; i < livres.length; i++) {
-            this.livres[i] = livres[i];
-        }
+        System.arraycopy(livres, 0, this.livres, 0, livres.length);
     }
 
     Etagere(int etageMax) {
@@ -44,7 +42,7 @@ public class Etagere {
     public int chercher(String titre, String auteur) {
         for (int i = 0; i < nombreDeLivres; i++) {
             if (livres[i].getTitre().equals(titre) && livres[i].getAuteur().equals(auteur)) {
-                System.out.println("Livre existe a la position " +i);
+                System.out.println("Livre existe a la position " + i);
                 return i + 1;
             }
         }

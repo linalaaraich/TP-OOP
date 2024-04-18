@@ -52,8 +52,6 @@ public class Livre {
         return prix;
     }
 
-
-
     @Override
     public String toString(){
         if (prix != -1){
@@ -69,9 +67,7 @@ public class Livre {
         else System.out.println("Le prix de "+ this.titre + " ecrit par " + this.auteur+ " n'est pas encore fixe!");
     }
     public int comparer(Livre livre){
-        if(livre.nombreDePages > this.nombreDePages ) return -1;//System.out.println("Le livre " + a.titre + "contient plus de pages que " + b.titre);
-        else if(livre.nombreDePages < this.nombreDePages ) return 1;//System.out.println("Le livre " + b.titre + "contient plus de pages que " + a.titre);
-        else return 0; //System.out.println("Les deux livres " + a.titre + "et" + b.titre + "contient le meme nombre de pages");
+        return Integer.compare(this.nombreDePages, livre.nombreDePages);
     }
 
 }
