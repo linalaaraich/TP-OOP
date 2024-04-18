@@ -1,9 +1,9 @@
 package Exercice4;
 
 public class Etagere {
-    Livre[] livres;
-    int etageMax;
-    int nombreDeLivres;
+    private Livre[] livres;
+    private int etageMax;
+    private int nombreDeLivres;
 
     Etagere(int etageMax, Livre[] livres) {
         this.etageMax = etageMax;
@@ -92,9 +92,9 @@ public class Etagere {
         livre5.setNombreDePages(480);
         livre5.setPrix(200);
 
-        System.out.println("Resultat de comparaison de " + livre1.titre + " et "+ livre6.titre +" est "+ livre1.comparer(livre6));
-        System.out.println("Resultat de comparaison de " + livre6.titre + " et "+ livre7.titre +" est "+ livre7.comparer(livre7));
-        System.out.println("Resultat de comparaison de " + livre2.titre + " et "+ livre6.titre +" est "+ livre2.comparer(livre6));
+        System.out.println("Resultat de comparaison de " + livre1.getTitre() + " et "+ livre6.getTitre() +" est "+ livre1.comparer(livre6));
+        System.out.println("Resultat de comparaison de " + livre6.getTitre() + " et "+ livre7.getTitre() +" est "+ livre7.comparer(livre7));
+        System.out.println("Resultat de comparaison de " + livre2.getTitre() + " et "+ livre6.getTitre() +" est "+ livre2.comparer(livre6));
         livre4.prixFixe();
         livre4.setPrix(220);
         livre4.prixFixe();

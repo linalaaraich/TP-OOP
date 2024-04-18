@@ -1,11 +1,11 @@
 package Exercice4;
 
 public class Livre {
-    String titre;
-    String auteur;
-    int nombreDePages;
-    double prix = -1;
-    boolean prixFixe;
+    private String titre;
+    private String auteur;
+    private int nombreDePages;
+    private double prix = -1;
+    private boolean prixFixe;
     public Livre (){
         this.prixFixe = false;
     }
@@ -51,6 +51,8 @@ public class Livre {
     double getPrix(){
         return prix;
     }
+
+
 
     @Override
     public String toString(){
